@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	    <title>京东焦点图</title>
+	    <script src="js/jquery.js"></script>
+	    <style>
+	    	div,ul,li,a,img {
+	    		margin: 0;
+	    		padding: 0;
+	    	}
+	    	ul {
+	    		list-style: none;
+	    	}
+	    	.out {
+	    		position: relative;
+	    		margin: 50px auto;
+	    		width: 500px;
+	    		height: 500px;
+	    		border: 5px solid #ccc;
+	    		border-radius: 3px;
+	    	}
+	    	.out .img li {
+	    		position: absolute;
+	    		top: 0;
+	    		left: 0;
+	    		display: none;
+	    	}
+	    	.out .img li img {
+	    		width: 495px;
+	    	}
+	    	.out .num {
+	    		position: absolute;
+	    		bottom: 20px;
+	    		left: 0;
+	    		width: 100%;
+	    		text-align: center;
+	    		font-size: 0;
+	    	}
+	    	.out .num li {
+	    		display: inline-block;
+	    		width: 20px;
+	    		height: 20px;
+	    		line-height: 20px;
+	    		margin: 0 3px;
+	    		background-color: #666;
+	    		color: #fff;
+				font-size: 16px;
+				text-align: center;
+				border-radius: 50%;
+				cursor: pointer;
+	    	}
+	    	.out .num li.active {
+	    		background-color: red;
+	    	}
+	    	.out .btn {
+	    		position: absolute;
+	    		top: 50%;
+	    		margin-top: -30px;
+	    		width: 40px;
+	    		height: 60px;
+	    		background-color: rgba(0,0,0,.5);
+	    		font-size: 40px;
+	    		color: #fff;
+	    		line-height: 60px;
+	    		text-align: center;
+	    		transition: .2s all ease;
+	    		opacity: 0;
+	    		cursor: pointer;
+	    	}
+	    	.out:hover .btn {
+	    		opacity: 1;
+	    	}
+	    	.out .left {
+	    		left: 0;
+	    	}
+	    	.out .right {
+	    		right: 0;
+	    	}
+	    </style>
+	</head>
+	<body>
+		<div class="out">
+			<ul class="img">
+				<li style="display: block;"><a href="#"><img src="images/list-01.png" alt=""></a></li>
+				<li><a href="#"><img src="images/list-02.png" alt=""></a></li>
+				<li><a href="#"><img src="images/list-03.png" alt=""></a></li>
+				<li><a href="#"><img src="images/list-04.png" alt=""></a></li>
+				<li><a href="#"><img src="images/list-05.png" alt=""></a></li>
+			</ul>
+			<ul class="num">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ul>
+			<div class="left btn"><</div>
+			<div class="right btn">></div>
+		</div>
+	</body>
+	<script>
+
+		//手动控制轮播
+		//$('.img li').first().show();
+		//$('.img li').eq(0).show();
+		$('.num li').mouseover(function(){
+			$(this).addClass('active').siblings().removeClass('active');
+			var index = $(this).index();
+			//console.log(index);
+			i = index;
+			$('.img li').eq(index).stop().fadeIn(500).siblings().stop().fadeOut(500);
+		});
+
+		//自动轮播
+		var i = 0;
+		var t = setInterval(move,1500);
+
+		//核心向右运动函数
+		function move(){
+			i++;
+			if(i===5){
+				i = 0;
+			}
+			$('.img li').eq(i).fadeIn(500).siblings().fadeOut(500);
+			$('.num li').eq(i).addClass('active').siblings().removeClass('active');
+		}
+		
+		//核心向左运动函数
+		function moveL(){
+			i--;
+			if(i===-1){
+				i = 4;
+			}
+			$('.img li').eq(i).fadeIn(500).siblings().fadeOut(500);
+			$('.num li').eq(i).addClass('active').siblings().removeClass('active');
+		}
+
+		//定时器的开始与结束(鼠标移入时)
+		$('.out').hover(function(){
+			clearInterval(t);
+		},function(){
+			t = setInterval(move,1500);
+		});
+
+		//左右按钮实现
+		$('.out .left').click(function(){
+			moveL();
+		});
+		$('.out .right').click(function(){
+			move();
+		});
+
+
+
+	</script>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片预加载之无序加载</title>
+	<script src="js/jquery.js"></script>
+	<style>
+		body,p,ul,li {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+			background-color: #eee;
+		}
+		a {
+			text-decoration: none;
+			outline: none;
+		}
+		ul {
+			list-style-type: none;
+		}
+		.box {
+			margin: 150px 0 0 200px;
+		}
+		#face-btn {
+			display: block;
+			color: #333; 
+		}
+		.panel {
+			width: 322px;
+			padding: 2px;
+			border: 1px solid #ccc;
+			background-color: #fff;
+		}
+		.list li {
+			display: inline-block;
+			width: 102px;
+			height: 102px;
+			border: 1px solid #fff;
+			margin-bottom: 5px;
+			cursor: pointer; 
+			border-radius: 50%;
+		}
+		.list li:hover {
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="box">
+		<a href="javascript:;" id="face-btn">表情</a>
+		<div class="panel">
+			<p class="loading">表情加载中，请稍后……</p>
+			<!-- 快捷键 li*75>img[src="images/index$"] -->
+			<!-- <ul class="list">
+				<li><img src="images/index1.png" alt=""></li>
+				<li><img src="images/index2.png" alt=""></li>
+				<li><img src="images/index3.png" alt=""></li>
+				<li><img src="images/index4.png" alt=""></li>
+				<li><img src="images/index5.png" alt=""></li>
+				<li><img src="images/index6.png" alt=""></li>
+				<li><img src="images/index7.png" alt=""></li>
+			</ul> -->
+		</div>
+	</div>
+	<script src="js/preload.js"></script>
+	<script>
+		var $btn = $('#face-btn');
+		var $panel = $('.panel');
+
+		var imgs = [];
+
+		for(var i = 0;i < 7; i++){
+			imgs[i] = 'images/index' + (i + 1) + '.png';
+		} 
+
+		var len = imgs.length;
+
+		$btn.on('click',function(e){
+
+			e.stopPropagation();
+
+			$panel.show();
+
+			$.preload(imgs,{
+				all: function(){
+					var html = '';
+
+					html += '<ul class="list">';
+
+					for(var i = 0;i<len;i++){
+						html += '<li><img src="'+ imgs[i] + '" alt=""></li>';
+					}
+
+					html += '</ul>';
+
+					//$panel.html(html);
+
+					setTimeout(function(){
+						$panel.html(html);
+					},1000);
+				}
+			});
+		});
+
+		$(document).on('click',function(){
+			$panel.hide();
+		})
+	</script>
+</body>
+</html>
