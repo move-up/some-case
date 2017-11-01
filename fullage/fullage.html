@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fullage</title>
+	<link rel="stylesheet" href="js/jquery.fullPage.css">
+	<script src="js/jquery-1.8.3.min.js"></script>
+	<script src="js/jquery-ui-1.10.3.min.js"></script>
+	<script src="js/jquery.fullPage.min.js"></script>
+	<script>
+		$(function(){
+			$('.fullpage').fullpage({
+				sectionsColor: ['pink','gray','yellow','#fafafa'],
+				//verticalCentered: false
+				anchors:['page1','page2','page3','page4'],
+				navigation:true,
+				//navigationTooltips:['它，终于来了','真正与你贴近的个人设备','非同一般的精准计时','在三个特点鲜明的系列中找到你的风格'],
+				
+			});
+		});
+	</script>
+</head>
+<body>
+	<style>
+		/* .s1 {
+			background-color: #eee;
+		}
+		.s2 {
+			background-color: pink;
+		}
+		.s3 {
+			background-color: #fafafa;
+		}
+		.s4 {
+			background-color: yellow;
+		}  */
+		.section {
+			position:relative;
+			background-color: #fff;
+			overflow: hidden;
+			text-align: center;
+		}
+		.s1 {
+			background-image: url(img/technology_hero_large_2x.jpg);
+			background-repeat: no-repeat;
+			background-position: center;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.s1 h1 {
+			margin-top: 5%;
+			color: #fff;
+			font-weight: normal;
+			font-size: 70px;
+			opacity: .8;
+		}
+		.s2 {
+			background: #f2f2f2 url("img/technology_hero_large_2x.jpg") no-repeat bottom;
+		}
+		.s2 h1 {
+			margin: 20px auto;
+			color: #333;
+			font-weight: normal;
+			font-size: 80px;
+		}
+	</style>
+	<div class="fullpage">
+		<div class="section s1">
+			<h1>它，终于来了</h1>
+		</div>
+		<div class="section s2">
+			<h1>真正与你贴近的个人设备</h1>
+		</div>
+		<div class="section s3">
+			<h1>非同一般的精准计时</h1>
+		</div>
+		<div class="section s4">
+			<h1>在三个特点鲜明的系列中找到你的风格</h1>
+		</div>
+	</div>
+	<ul id="menu">
+		<li data-menuanchor="page1" class="active"><a href="#page1">page1</i></a></li>
+		<li data-menuanchor="page2" class=""><a href="#page2">page2</a></li>
+		<li data-menuanchor="page3" class=""><a href="#page3">page3</a></li>
+		<li data-menuanchor="page3" class=""><a href="#page4">page3</a></li>
+	</ul>
+</body>
+</html>

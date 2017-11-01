@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- saved from url=(0036)http://81hu.com/fullpage/index9.html -->
+<html class="fp-enabled" style="overflow: hidden; height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>fullPage.js slide自动滚动_fullPage.js全屏滚动插件</title>
+<meta name="keywords" content="fullPage.js,全屏滚动,jQuery全屏滚动,fullPage全屏滚动,jQuery插件">
+<meta name="description" content="fullPage.js 是一个基于 jQuery 的插件，它能够很方便、很轻松的制作出全屏网站。本站详细介绍fullPage各初始化属性设置。如果你也希望你的网站能设计成全屏的，显得更上档次，你可以试试fullPage.js。">
+<link rel="stylesheet" href="./fullPage2_files/jquery.fullPage.css">
+<style>
+.section { text-align: center; font: 50px "Microsoft Yahei"; color: #fff;}
+.section p{ font: 30px "Microsoft Yahei";}
+</style>
+</head>
+<body class="fp-viewing-0" style="overflow: hidden; height: 100%;">
+<div id="fullPage" class="fullpage-wrapper" style="height: 100%; position: relative; touch-action: none; transform: translate3d(0px, 0px, 0px); transition: all 700ms ease;">
+  <div class="section fp-section fp-table active fp-completely" style="height: 901px; background-color: rgb(27, 188, 155);"><div class="fp-tableCell" style="height: 901px;">
+    <h3>第一屏</h3>
+    <p>请滚动到第二屏查看</p>
+  </div></div>
+  <div class="section fp-section" style="height: 901px; background-color: rgb(75, 191, 195);">
+    <div class="fp-slides"><div class="fp-slidesContainer" style="width: 300%; transition: all 700ms ease; transform: translate3d(0px, 0px, 0px);"><div class="slide fp-slide fp-table active" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 901px;">
+      <h3>第二屏的第一屏</h3>
+      <p>设置页面停留时间单位：毫秒</p>
+    </div></div><div class="slide fp-slide fp-table" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 901px;">
+      <h3>第二屏的第二屏</h3>
+      <p>本实例设定为3000毫秒</p>
+    </div></div><div class="slide fp-slide fp-table" style="width: 33.3333%;"><div class="fp-tableCell" style="height: 901px;">
+      <h3>第二屏的第三屏</h3>
+      <p>代码：setInterval(function(){
+        $.fn.fullpage.moveSlideRight();
+        }, 3000);</p>
+    </div></div></div></div><div class="fp-controlArrow fp-prev"></div><div class="fp-controlArrow fp-next"></div>
+    
+    
+  </div>
+  <div class="section fp-section fp-table" style="height: 901px; background-color: rgb(123, 170, 190);"><div class="fp-tableCell" style="height: 901px;">
+    <h3>第三屏</h3>
+    <p>更多设置 请访问：http://fullpage.81hu.com</p>
+  </div></div>
+</div>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.fullpage.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/move.js/0.5.0/move.min.js"></script>
+<script>
+$(function(){
+    $('#fullPage').fullpage({
+        sectionsColor : ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+        loopBottom: true,
+        verticalCentered: false
+    });
+
+    setInterval(function(){
+        $.fn.fullpage.moveSlideRight();
+    }, 3000);
+});
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?319df46884458c3fbee36b0cc6e390e8";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</body></html>
