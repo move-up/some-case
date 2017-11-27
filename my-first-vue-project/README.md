@@ -5,6 +5,12 @@
 ## Build Setup
 
 ``` bash
+
+# 全局安装 vue-cli
+$ npm install --global vue-cli
+
+
+
 # install dependencies
 npm install
 
