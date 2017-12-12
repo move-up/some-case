@@ -1,5 +1,5 @@
 # some-case
-[滚动监听](https://move-up.github.io/some-case/some-case/滚动监听/index.html)
+[滚动监听](https://move-up.github.io/some-case/滚动监听/index.html)
 
 [fullpage](https://move-up.github.io/some-case/fullage/fullage1.html)
 
