@@ -42,10 +42,13 @@
       </h1>
 
       <input v-model="newItem" v-on:keyup.enter="addNew">
+
+    </ul>
+    <ul class="list">
+      <h2>todolist</h2>
       <li v-for="item in items" :key="item" v-bind:class="{finished: item.isFinished}" v-on:click="toggleFinish(item)">
         {{ item.label }} <p v-on:click="deleteItem(index)">删除</p>
       </li>
-
     </ul>
 
   </div>
@@ -158,5 +161,12 @@ export default {
   }
   .isFinished {
     text-decoration: underline;
+  }
+  .list li p {
+    display: inline-block;
+    cursor: pointer;
+  }
+  .list li {
+    display: block;
   }
 </style>
