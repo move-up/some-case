@@ -1,0 +1,22 @@
+{
+  "name": "some-case",
+  "version": "1.0.0",
+  "description": "vue practice",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/move-up/some-case.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "liwanzhen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/move-up/some-case/issues"
+  },
+  "homepage": "https://github.com/move-up/some-case#readme"
+}
